@@ -1,0 +1,140 @@
+.navbar {
+  background-color: rgba(20, 28, 38, 0.9);
+  color: white;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: saturate(130%) blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  min-height: 60px;
+}
+
+/* Container */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.navbar-logo h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #61a8ff;
+  letter-spacing: 0.35px;
+}
+
+/* Nav links (desktop) */
+.navbar-nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: #e9eef5;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.05rem;
+  transition: color 0.25s ease;
+  position: relative;
+  padding: 0.35rem 0;
+}
+
+.nav-link:hover {
+  color: #61a8ff;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #61a8ff;
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Toggle button */
+.navbar-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  padding: 0.5rem 0.6rem;
+  border-radius: 8px;
+  color: #e9eef5;
+  z-index: 1100;   /* keep button above menu */
+  position: relative;
+  cursor: pointer;
+}
+
+.navbar-toggle:active {
+  background: rgba(255,255,255,0.06);
+}
+
+/* Hamburger as 3 white lines */
+.hamburger-line {
+  display: block;
+  width: 40px;
+  height: 4px;
+  background: #ffffff;
+  margin: 5px 0;
+  border-radius: 2px;
+}
+
+/* ======================
+   Mobile Styles
+   ====================== */
+@media (max-width: 768px) {
+  .navbar-container {
+    max-width: 100%;
+    padding: 1.05rem 1.2rem;
+  }
+
+  /* hide links by default */
+  .navbar-nav {
+    position: fixed;
+    left: -100%;
+    top: 78px;
+    flex-direction: column;
+    background-color: #2c3e50;
+    width: 100%;
+    text-align: center;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding: 2rem 0;
+  }
+
+  /* active class = slide in */
+  .navbar-nav.active {
+    left: 0;
+  }
+
+  .navbar-nav .nav-link {
+    margin: 0.5rem 0;
+    font-size: 1.16rem;
+  }
+
+  /* show toggle button */
+  .navbar-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    z-index: 2000;
+    position: relative;
+  }
+}
